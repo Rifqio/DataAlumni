@@ -6,12 +6,21 @@ use Config\App;
 
 class Data extends BaseController
 {
+    protected $datamodel;
+
+    public function __construct()
+    {
+        $this->datamodel = new DataModel();
+    }
     public function index()
     {
-        $judul['title'] = 'Halaman Utama';
-        $datamodel = new DataModel();
-        $data = $datamodel->findAll();
-        dd($data);
-        return view('pages/main', $judul);
+        // $data = $this->datamodel->findAll();
+        
+        $main = [
+            'title' => 'Home',
+            'list' => $this->datamodel->paginate(15, 'data'),
+            'pager' => $this->datamodel->pager 
+        ];
+        return view('pages/main', $main);
     }
 }

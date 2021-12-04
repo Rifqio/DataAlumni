@@ -21,15 +21,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i=1;?>
+                        <?php foreach ($list as $l) : ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
+                            <th scope="row"><?= $i++ ?></th>
+                            <td><?= $l['nama']; ?></td>
+                            <td><?= $l['nim'];?></td>
+                            <td><?= $l['angkatan'];  ?></td>
+                            <td>
+                                <a href=""><i class="fas fa-eye"></i></a>
+                                <a href=""><i class="fas fa-edit mx-2"></i></a>
+                                <a href=""><i class="fas fa-trash"></i></a>
+                            </td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?= $pager->links('data','style_pagination'); ?>
             </div>
         </div>
 
