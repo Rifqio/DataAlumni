@@ -13,9 +13,13 @@
                     <button type="submit" type="submit" class="btn btn-outline-primary">SEARCH</button>
                 </div>
             </form>
-
             <div class="mt-4">
                 <table class="table">
+                    <div class="d-flex flex-row-reverse">
+                        <a href="/data/create">
+                            <button type="button" class="btn btn-primary">Tambah Data</button>
+                        </a>
+                    </div>
                     <thead>
                         <tr>
                             <th scope="col">#</th>
