@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 07:10 AM
+-- Generation Time: Dec 06, 2021 at 09:31 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -273,7 +273,7 @@ INSERT INTO `alumni_2` (`id`, `nama`, `nim`, `angkatan`, `email`, `status`, `pek
 (198, 'Nufannisa Umi Muslimah, S.Si.', 'M0416039', '2016', 'nufannisaumi@student.uns.ac.id', 'Bekerja', 'Pegawai Pemerintah Non-PNS', 'Badan Penelitian dan Pengembangan Kesehatan, KEMENKES', 'Jl. Percetakan Negara No.29, RT.23/RW.7, Johar Baru, Kec. Johar Baru, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10560', '0857-3010-1436', '28-03-21', 'Tim Logistik Covid 19', 'Ya, Sesuai', 'Rp 2.000.000,00 sampai Rp 5.000.000,00', 'Lebih dari 20 orang', '3 bulan sampai 6 bulan', 'sosial media', 'Berkompetisi (Ujian/Test)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '-', '-', '-', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-', '-'),
 (199, 'Lindha Wulandari, S.Stat.', 'M0716039', '2016', 'lindhawulandari2@gmail.com', 'persiapan cpns', '-', '-', '-', '-', '31-05-21', '--', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Kurang dari 3 bulan', 'tetangga', 'Diminta oleh Pengguna (User)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '-', '-', '-', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'setelah resign dari pekerjaan pertama saya persiapancpns', 'bekerja dan berwirausaha'),
 (200, 'Rizama Hazim Fatik, S.Si.', 'M0215056', '2015', 'Hazim.rezama@gmail.com', 'Bekerja', 'Pegawai Swasta', 'Ditya Horse Land', 'Jl. K.H. Ahmad Dahlan, Belangwetan, Klaten Utara, Klaten', '0812-3725-2500', '02-06-21', 'Digital Marketing', 'Tidak Sesuai', 'Kurang dari Rp 2.000.000,00', '10 orang sampai 15 orang', 'Lebih dari satu tahun', 'Instagram', 'Diminta oleh Pengguna (User)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '--', '-', '-', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-', '-'),
-(201, 'Intan Ayu Zuhaela, S.Si.', 'M0316038', '2016', 'intanzuhaela2508@gmail.com', 'Bekerja', 'Pegawai Swasta', 'Tokopedia', 'Jalan Gemah Raya, Pedurungan, Semarang', '-', '30-04-21', 'Customer Service', 'Tidak Sesuai', 'Rp 2.000.000,00 sampai Rp 5.000.000,00', 'Lebih dari 20 orang', '3 bulan sampai 6 bulan', 'Internet', 'Berkompetisi (Ujian/Test)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '-', '-', '-', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-', '-');
+(201, 'Intan Ayu Zuhaela, S.Si.', 'M0316038', '2016', 'intanzuhaela2508@gmail.com', 'Bekerja', 'Pegawai Swasta', 'Tokopedia\r\n', 'Jalan Gemah Raya, Pedurungan, Semarang\r\n', '-', '30-04-21', 'Customer Service', 'Tidak Sesuai', 'Rp 2.000.000,00 sampai Rp 5.000.000,00', 'Lebih dari 20 orang', '3 bulan sampai 6 bulan', 'Internet\r\n', 'Berkompetisi (Ujian/Test)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '-', '-', '-\r\n', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-\r\n', '-');
 
 --
 -- Indexes for dumped tables
@@ -284,6 +284,16 @@ INSERT INTO `alumni_2` (`id`, `nama`, `nim`, `angkatan`, `email`, `status`, `pek
 --
 ALTER TABLE `alumni_2`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `alumni_2`
+--
+ALTER TABLE `alumni_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,6 +7,11 @@
             <a href="<?= base_url(); ?>" style="text-decoration: none; color:black;">
                 <h1 style="text-align: center;">Daftar Alumni 2020</h1>
             </a>
+            <?php if (session()->getFlashData('pesan')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashData('pesan'); ?>
+                </div>
+            <?php endif; ?>
             <form action="" method="get">
                 <div class="input-group mt-2">
                     <input type="text" name="keyword" class="form-control rounded" placeholder="Cari Data Alumni" aria-label="Search" aria-describedby="search-addon" />
@@ -39,7 +44,7 @@
                                 <td><?= $l['angkatan'];  ?></td>
                                 <td>
                                     <a href="/data/details/<?= $l['id']; ?>"><i class="fas fa-eye mx-2"></i></a>
-                                    <a href=""><i class="fas fa-edit"></i></a>
+                                    <a href="/data/edit/<?= $l['id']; ?>"><i class="fas fa-edit"></i></a>
                                     <form action="/data/<?= $l['id'] ?>" method="POST" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">

@@ -9,7 +9,13 @@ class DataModel extends Model
     protected $table      = 'alumni_2';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['name', 'email'];
+    protected $allowedFields = ['nama', 'nim', 'angkatan', 'email', 'status', 'pekerjaan', 'instansi_kerja', 
+    'alamat_instansi', 'telp_instansi', 'mulai_bekerja', 'posisi', 'kesesuaian', 'gaji', 'banyak_pegawai',
+    'waktu_tunggu', 'info_pekerjaan', 'cara_mendapatkan_kerja', 'univ_kuliah_lanjut', 'jenjang', 'program_studi',
+    'tahun_masuk', 'prodi_kesesuaian', 'sumber_pendidikan', 'beasiswa', 'info_beasiswa', 'nama_usaha', 'bidang_usaha',
+    'usaha', 'lokasi', 'badan_hukum', 'kesesuaian_jurusan', 'pendapatan', 'jml_pegawai_instansi', 'kesibukan',
+    'rencana_capai'
+    ];
 
     public function search ($keyword)
     {
