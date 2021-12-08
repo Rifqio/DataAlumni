@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 09:31 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Generation Time: Dec 08, 2021 at 01:36 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -275,6 +275,206 @@ INSERT INTO `alumni_2` (`id`, `nama`, `nim`, `angkatan`, `email`, `status`, `pek
 (200, 'Rizama Hazim Fatik, S.Si.', 'M0215056', '2015', 'Hazim.rezama@gmail.com', 'Bekerja', 'Pegawai Swasta', 'Ditya Horse Land', 'Jl. K.H. Ahmad Dahlan, Belangwetan, Klaten Utara, Klaten', '0812-3725-2500', '02-06-21', 'Digital Marketing', 'Tidak Sesuai', 'Kurang dari Rp 2.000.000,00', '10 orang sampai 15 orang', 'Lebih dari satu tahun', 'Instagram', 'Diminta oleh Pengguna (User)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '--', '-', '-', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-', '-'),
 (201, 'Intan Ayu Zuhaela, S.Si.', 'M0316038', '2016', 'intanzuhaela2508@gmail.com', 'Bekerja', 'Pegawai Swasta', 'Tokopedia\r\n', 'Jalan Gemah Raya, Pedurungan, Semarang\r\n', '-', '30-04-21', 'Customer Service', 'Tidak Sesuai', 'Rp 2.000.000,00 sampai Rp 5.000.000,00', 'Lebih dari 20 orang', '3 bulan sampai 6 bulan', 'Internet\r\n', 'Berkompetisi (Ujian/Test)', '-', 'Lainnya...', '-', '-', 'Lainnya...', 'Lainnya...', '-', '-', '-', '-\r\n', 'Lainnya...', '-', 'Lainnya...', 'Lainnya...', 'Lainnya...', 'Lainnya...', '-\r\n', '-');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_activation_attempts`
+--
+
+CREATE TABLE `auth_activation_attempts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `ip_address` varchar(255) NOT NULL,
+  `user_agent` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_groups`
+--
+
+CREATE TABLE `auth_groups` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups`
+--
+
+INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Site Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_groups_permissions`
+--
+
+CREATE TABLE `auth_groups_permissions` (
+  `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_groups_users`
+--
+
+CREATE TABLE `auth_groups_users` (
+  `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups_users`
+--
+
+INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
+(1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_logins`
+--
+
+CREATE TABLE `auth_logins` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `ip_address` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `success` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_logins`
+--
+
+INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
+(1, '::1', 'oktariorifqi@gmail.com', 1, '2021-12-07 16:34:35', 1),
+(2, '::1', 'admin', NULL, '2021-12-07 17:05:11', 0),
+(3, '::1', 'admin', NULL, '2021-12-07 17:05:17', 0),
+(4, '::1', 'oktariorifqi@gmail.com', 1, '2021-12-07 17:05:23', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_permissions`
+--
+
+CREATE TABLE `auth_permissions` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_permissions`
+--
+
+INSERT INTO `auth_permissions` (`id`, `name`, `description`) VALUES
+(1, 'manage-users', 'Manage All Users');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_reset_attempts`
+--
+
+CREATE TABLE `auth_reset_attempts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `ip_address` varchar(255) NOT NULL,
+  `user_agent` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_tokens`
+--
+
+CREATE TABLE `auth_tokens` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `selector` varchar(255) NOT NULL,
+  `hashedValidator` varchar(255) NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `expires` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth_users_permissions`
+--
+
+CREATE TABLE `auth_users_permissions` (
+  `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `version` varchar(255) NOT NULL,
+  `class` varchar(255) NOT NULL,
+  `group` varchar(255) NOT NULL,
+  `namespace` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1638914937, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(30) DEFAULT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `reset_hash` varchar(255) DEFAULT NULL,
+  `reset_at` datetime DEFAULT NULL,
+  `reset_expires` datetime DEFAULT NULL,
+  `activate_hash` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `status_message` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
+  `force_pass_reset` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'oktariorifqi@gmail.com', 'admin', '$2y$10$SNPaDAU/hrF9PcHVb0JTiuuU/CADx4rZH6mjyqqb8CowZW9KJSlHW', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-12-07 16:33:28', '2021-12-07 16:33:28', NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -286,6 +486,81 @@ ALTER TABLE `alumni_2`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `auth_activation_attempts`
+--
+ALTER TABLE `auth_activation_attempts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `auth_groups`
+--
+ALTER TABLE `auth_groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `auth_groups_permissions`
+--
+ALTER TABLE `auth_groups_permissions`
+  ADD KEY `auth_groups_permissions_permission_id_foreign` (`permission_id`),
+  ADD KEY `group_id_permission_id` (`group_id`,`permission_id`);
+
+--
+-- Indexes for table `auth_groups_users`
+--
+ALTER TABLE `auth_groups_users`
+  ADD KEY `auth_groups_users_user_id_foreign` (`user_id`),
+  ADD KEY `group_id_user_id` (`group_id`,`user_id`);
+
+--
+-- Indexes for table `auth_logins`
+--
+ALTER TABLE `auth_logins`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `auth_permissions`
+--
+ALTER TABLE `auth_permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `auth_reset_attempts`
+--
+ALTER TABLE `auth_reset_attempts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `auth_tokens`
+--
+ALTER TABLE `auth_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `auth_tokens_user_id_foreign` (`user_id`),
+  ADD KEY `selector` (`selector`);
+
+--
+-- Indexes for table `auth_users_permissions`
+--
+ALTER TABLE `auth_users_permissions`
+  ADD KEY `auth_users_permissions_permission_id_foreign` (`permission_id`),
+  ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -293,7 +568,86 @@ ALTER TABLE `alumni_2`
 -- AUTO_INCREMENT for table `alumni_2`
 --
 ALTER TABLE `alumni_2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+
+--
+-- AUTO_INCREMENT for table `auth_activation_attempts`
+--
+ALTER TABLE `auth_activation_attempts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `auth_groups`
+--
+ALTER TABLE `auth_groups`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `auth_logins`
+--
+ALTER TABLE `auth_logins`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `auth_permissions`
+--
+ALTER TABLE `auth_permissions`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `auth_reset_attempts`
+--
+ALTER TABLE `auth_reset_attempts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `auth_tokens`
+--
+ALTER TABLE `auth_tokens`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `auth_groups_permissions`
+--
+ALTER TABLE `auth_groups_permissions`
+  ADD CONSTRAINT `auth_groups_permissions_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `auth_groups_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `auth_groups_users`
+--
+ALTER TABLE `auth_groups_users`
+  ADD CONSTRAINT `auth_groups_users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `auth_tokens`
+--
+ALTER TABLE `auth_tokens`
+  ADD CONSTRAINT `auth_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `auth_users_permissions`
+--
+ALTER TABLE `auth_users_permissions`
+  ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

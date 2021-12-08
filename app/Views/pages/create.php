@@ -3,7 +3,9 @@
 
 <div class="container mb-5">
     <div class="row">
+        <a href="<?= base_url(); ?>" style="text-decoration: none; color:black;">
         <h2 class="my-4" style="text-align: center;">Tambah Data Alumni</h2>
+        </a>
         <div class="col">
             <form action="/data/save" method="POST">
                 <?= csrf_field(); ?>
