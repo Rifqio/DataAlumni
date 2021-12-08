@@ -33,7 +33,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Data::index');
 
-$routes->delete('/data/(:num)', 'Data::delete/$1');
+$routes->delete('/data/(:num)', 'Data::delete/$1',['filter' => 'role:admin']);
+$routes->get('/data/edit/(:num)', 'Data::edit/$1', ['filter' => 'role:admin']);
+$routes->get('/data/create', 'Data::create', ['filter' => 'role:admin']);
+
 // $routes->get('/data/(:any)', 'Data::details/$1');
 
 /*

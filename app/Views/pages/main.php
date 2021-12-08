@@ -21,9 +21,11 @@
             <div class="mt-4">
                 <table class="table">
                     <div class="d-flex flex-row-reverse">
+                        <?php if (in_groups('admin')) : ?>
                         <a href="/data/create">
                             <button type="button" class="btn btn-primary">Tambah Data</button>
                         </a>
+                        <?php endif ?>
                     </div>
                     <thead>
                         <tr>
@@ -44,6 +46,7 @@
                                 <td><?= $l['angkatan'];  ?></td>
                                 <td>
                                     <a href="/data/details/<?= $l['id']; ?>"><i class="fas fa-eye mx-2"></i></a>
+                                    <?php if (in_groups('admin')) : ?>
                                     <a href="/data/edit/<?= $l['id']; ?>"><i class="fas fa-edit"></i></a>
                                     <form action="/data/<?= $l['id'] ?>" method="POST" class="d-inline">
                                         <?= csrf_field(); ?>
@@ -52,6 +55,7 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
